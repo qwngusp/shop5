@@ -411,6 +411,40 @@
   color: #ddd;
 }
 
+
+/* 배송 토글 */
+.detail-delivery-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px var(--space-md);
+  cursor: pointer;
+  user-select: none;
+}
+.detail-delivery-toggle:active { background: var(--bg-gray); }
+.detail-delivery-summary {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.detail-delivery-type-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.delivery-toggle-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.detail-delivery-detail {
+  padding: 4px var(--space-md) 14px 95px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+
 /* ── 결제 처리중 오버레이 ── */
 .pay-loading-overlay {
   position: fixed;

@@ -85,12 +85,19 @@ const DetailPage = (() => {
 
       <div class="divider"></div>
 
-      <div class="detail-delivery-row">
+      <!-- 배송 토글 -->
+      <div class="detail-delivery-toggle" id="delivery-toggle" onclick="DetailPage.toggleDelivery()">
         <span class="detail-delivery-label">배송 정보</span>
-        <div class="detail-delivery-info">
-          <p class="detail-delivery-addr">- 배송 받을 주소 › <strong>우리집</strong></p>
-          <p class="detail-delivery-note">- ${p.shipping} </p>
+        <div class="detail-delivery-summary">
+          <span class="detail-delivery-type-text">배송비 및 배송일자 관련 정보</span>
         </div>
+        <svg class="delivery-toggle-icon" id="delivery-toggle-icon" width="20" height="20" viewBox="0 0 12 12" fill="#999">
+          <polygon points="2,2 10,2 6,10"/>
+        </svg>
+      </div>
+      <div class="detail-delivery-detail" id="delivery-detail" style="display:none;">
+        <p class="detail-delivery-addr">- 배송 받을 주소 › <strong>우리집</strong></p>
+        <p class="detail-delivery-note"></br>- ${p.shipping} </p>
       </div>
 
       <div class="divider"></div>
@@ -260,6 +267,15 @@ const DetailPage = (() => {
     updateQtyDisplay();
     Utils.showToast('10% 할인 쿠폰이 적용되었습니다 🎉');
   };
+  
+  // 배송 정보 토글
+  const toggleDelivery = () => {
+    const detail = document.getElementById('delivery-detail');
+    const icon   = document.getElementById('delivery-toggle-icon');
+    const isOpen = detail.style.display !== 'none';
+    detail.style.display = isOpen ? 'none' : 'block';
+    icon.style.transform  = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+  }; 
 
   // ── 수량/금액 표시 업데이트 ─────────────────────
   const updateQtyDisplay = () => {
@@ -270,5 +286,5 @@ const DetailPage = (() => {
     }
   };
 
-  return { init, applyAndClose, closeCouponSheet };
+  return { init, applyAndClose, closeCouponSheet, toggleDelivery };
 })();
