@@ -218,10 +218,22 @@ const ListPage = (() => {
     'p006': 2,
   };
 
+  // 상품별 배송비 색상 설정
+  const SHIPPING_COLOR = {
+    'p001': '#6e6e6e',
+    'p002': '#b4b3b3',
+    'p003': '#b4b3b3',
+    'p004': '#eee',
+    'p005': '#b4b3b3',
+    'p006': '#a8a8a8',
+  };
+
   // 토글 깊이에 따른 배송비 HTML 생성
   const shippingToggleHTML = (p) => {
     const depth = TOGGLE_DEPTH[p.id] || 1;
     const id = p.id;
+    const shippingColor = SHIPPING_COLOR[p.id] || '';
+    const colorStyle = shippingColor ? ` style="color:${shippingColor};"` : '';
 
     if (depth === 1) {
       return `
@@ -230,7 +242,7 @@ const ListPage = (() => {
             🔽 배송 정보
           </div>
           <div id="list-shipping-inner-${id}" class="product-row__shipping-detail" style="display:none;">
-            <span class="product-row__shipping"><span class="shipping-box-icon">📦</span>${p.shipping}</span>
+            <span class="product-row__shipping"${colorStyle}><span class="shipping-box-icon">📦</span>${p.shipping}</span>
           </div>
         </div>
       `;
@@ -247,7 +259,7 @@ const ListPage = (() => {
               🔽 배송비
             </div>
             <div id="list-shipping-fee-${id}" class="product-row__shipping-detail" style="display:none;">
-              <span class="product-row__shipping"><span class="shipping-box-icon">📦</span>${p.shipping}</span>
+              <span class="product-row__shipping"${colorStyle}><span class="shipping-box-icon">📦</span>${p.shipping}</span>
             </div>
           </div>
         </div>
@@ -269,7 +281,7 @@ const ListPage = (() => {
                 내용확인하기
               </button>
               <div id="list-shipping-final-${id}" class="product-row__shipping-final" style="display:none;">
-                <span class="product-row__shipping"><span class="shipping-box-icon">📦</span>${p.shipping}</span>
+                <span class="product-row__shipping"${colorStyle}><span class="shipping-box-icon">📦</span>${p.shipping}</span>
               </div>
             </div>
           </div>
