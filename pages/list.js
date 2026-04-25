@@ -259,7 +259,7 @@ const ListPage = (() => {
               🔽 배송비
             </div>
             <div id="list-shipping-fee-${id}" class="product-row__shipping-detail" style="display:none;">
-              <span class="product-row__shipping"${colorStyle}><span class="shipping-box-icon">📦</span>${p.shipping}</span>
+              <span class="product-row__shipping"${colorStyle}><span class="shipping-box-icon"></span>${p.shipping}</span>
             </div>
           </div>
         </div>
@@ -281,7 +281,7 @@ const ListPage = (() => {
                 내용확인하기
               </button>
               <div id="list-shipping-final-${id}" class="product-row__shipping-final" style="display:none;">
-                <span class="product-row__shipping"${colorStyle}><span class="shipping-box-icon">📦</span>${p.shipping}</span>
+                <span class="product-row__shipping"${colorStyle}><span class="shipping-box-icon"></span>${p.shipping}</span>
               </div>
             </div>
           </div>
